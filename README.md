@@ -1,2 +1,2 @@
 # simpres
-sistem pendukung keputusan mahasiswa berprestasi
+sistem pendukung keputusan penerima bantuan BPNT menggunakan metode topsis
