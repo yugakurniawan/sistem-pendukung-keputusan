@@ -18,11 +18,12 @@
                 <tr>
                     <th>#</th>
                     <th>Nama Lengkap</th>
-                    <th>Prestasi (C1)</th>
-                    <th>Karya Ilmiah (C2)</th>
-                    <th>Bahasa Asing (C3)</th>
-                    <th>IPK (C4)</th>
-                    <th>Indeks SKS (C5)</th>
+                    <th>usia</th>
+                    <th>Status Pernikahan</th>
+                    <th>Pekerjaan</th>
+                    <th>Pendapatan</th>
+                    <th>Status Tinggal</th>
+                    <th>Tanggungan</th>
                     <th>Nilai Preferensi</th>
                 </tr>
                 </thead>
@@ -50,11 +51,12 @@
                     columns:[
                         {data:'id', name: 'id',orderable:false,visible:false},
                         {data:'nama', name: 'nama',orderable:false},
-                        {data:'prestasi',name:'prestasi',orderable:false},
-                        {data:'karya_ilmiah',name:'karya_ilmiah',orderable:false},
-                        {data:'bahasa_asing',name:'bahasa_asing',orderable:false},
-                        {data:'ipk',name:'a_ipk',orderable:false},
-                        {data:'indeks_sks',name:'indeks_sks',orderable:false},
+                        {data:'usia',name:'usia'},
+                        {data:'status_pernikahan',name:'status_pernikahan'},
+                        {data:'pekerjaan',name:'pekerjaan'},
+                        {data:'pendapatan',name:'pendapatan'},
+                        {data:'status_tinggal',name:'status_tinggal'},                        
+                        {data:'tanggungan',name:'tanggungan'},
                         {data:'nilai_preferensi',name:'nilai_preferensi'}                        
                     ]
                 });

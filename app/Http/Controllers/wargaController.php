@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 use Yajra\Datatables\Datatables;
-use Validator;
+// use Validator;
+use Illuminate\Support\Facades\Validator;
 use \App\Helper\Alert;
-use \App\Model\Mahasiswa;
+use \App\Model\Warga;
+use \App\User;
 use Illuminate\Http\Request;
 
-class mahasiswaController extends Controller
+class wargaController extends Controller
 {
     //
     public function index()
     {
         # code...
 
-        return Datatables::of(Mahasiswa::all())
-                ->setRowId(function(Mahasiswa $mahasiswa){
-                    return $mahasiswa->id;
+        return Datatables::of(Warga::all())
+                ->setRowId(function(Warga $warga){
+                    return $warga->id;
                 })->addColumn('aksi','admin.mahasiswa.action-button')
                 ->rawColumns(['aksi'])
                 ->make(true);
@@ -24,14 +26,14 @@ class mahasiswaController extends Controller
 
     public function delete(Request $request){
         $validator = Validator::make($request->all(),[
-            "id"=> "required|numeric|exists:mahasiswa,id"
+            "id"=> "required|numeric|exists:warga,id"
         ]);
         $response = ['ok'=>true];
         if($validator->fails()){
             $response['ok'] = false;
             $response['msg'] = "Id tidak valid";
         }else{
-            Mahasiswa::find($request->input('id'))->delete();
+            Warga::find($request->input('id'))->delete();
             $response['msg'] = "berhasil menghapus data";
         }
         return response()->json($response, 200);
@@ -42,28 +44,26 @@ class mahasiswaController extends Controller
         $res = ['stored'=>true];
         $validator = Validator::make($request->all(),[
             "nama" => "required|min:3",
-            'nim' => 'required|min:3',
-            'fakultas' => 'required',
-            'prestasi' => 'required|integer',
-            'karya_ilmiah' => 'required|integer',
-            'ipk' => 'required|numeric',
-            'bahasa_asing' => 'required|numeric',
-            'indeks_sks' => 'required|numeric'
+            'usia' => 'required',
+            'status_pernikahan' => 'required',
+            'pekerjaan' => 'required',
+            'pendapatan' => 'required|integer',
+            'status_tinggal' => 'required',
+            'tanggungan' => 'required|numeric'
         ]);
         if($validator->fails()){
             $res['msg'] = Alert::errorList($validator->errors());
             $res['stored'] = false;
         }else{
-            $mahasiswa = new Mahasiswa();
-            $mahasiswa->nama = $request->input("nama");
-            $mahasiswa->nim = $request->input('nim');
-            $mahasiswa->fakultas = $request->input('fakultas');
-            $mahasiswa->prestasi = $request->input('prestasi');
-            $mahasiswa->bahasa_asing = $request->input('bahasa_asing');
-            $mahasiswa->karya_ilmiah = $request->input('karya_ilmiah');
-            $mahasiswa->ipk = $request->input('ipk');
-            $mahasiswa->indeks_sks = $request->input('indeks_sks');
-            $mahasiswa->save();
+            $warga = new Warga();
+            $warga->nama = $request->input("nama");
+            $warga->usia = $request->input('usia');
+            $warga->status_pernikahan = $request->input('status_pernikahan');
+            $warga->pekerjaan = $request->input('pekerjaan');
+            $warga->pendapatan = $request->input('pendapatan');
+            $warga->status_tinggal = $request->input('status_tinggal');
+            $warga->tanggungan = $request->input('tanggungan');
+            $warga->save();
             $res['msg'] = Alert::success("Berhasil Menambahkan Data");
         }
 

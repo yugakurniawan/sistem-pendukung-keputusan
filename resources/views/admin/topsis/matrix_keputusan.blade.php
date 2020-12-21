@@ -13,18 +13,17 @@
             
             </p>
 
-            <table id="table-mahasiswa" class="table table-bordered">
+            <table id="bpnt" class="table table-bordered">
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>NIM</th>
                     <th>Nama Lengkap</th>
-                    <th>Fakultas</th>
-                    <th>Prestasi (C1)</th>
-                    <th>Karya Ilmiah (C2)</th>
-                    <th>Bahasa Asing (C3)</th>
-                    <th>IPK (C4)</th>
-                    <th>Indeks SKS (C5)</th>
+                    <th>usia</th>
+                    <th>Status Pernikahan</th>
+                    <th>Pekerjaan</th>
+                    <th>Pendapatan</th>
+                    <th>Status Tinggal</th>
+                    <th>Tanggungan</th>
                 </tr>
                 </thead>
 
@@ -41,23 +40,21 @@
 @endsection
 @push('scripts')
         <script type="text/javascript">
-            
             $(document).ready(function() {
-                $("#table-mahasiswa").DataTable({
+                $("#bpnt").DataTable({
                     processing: true,
                     serverSide: true,
                     ajax: '{!! route('admin.topsis.matrix_keputusan') !!}',
                     order:[0,'desc'],
                     columns:[
                         {data:'id', name: 'id'},
-                        {data:'nim',name :'nim'},
                         {data:'nama', name: 'nama'},
-                        {data:'fakultas',name:'fakultas'},
-                        {data:'l_prestasi',name:'l_prestasi'},
-                        {data:'l_karya_ilmiah',name:'l_karya_ilmiah'},
-                        {data:'l_bahasa_asing',name:'l_bahasa_asing'},
-                        {data:'l_ipk',name:'l_ipk'},
-                        {data:'l_indeks_sks',name:'l_indeks_sks'}                        
+                        {data:'l_usia',name:'l_usia'},
+                        {data:'l_status_pernikahan',name:'l_status_pernikahan'},
+                        {data:'l_pekerjaan',name:'l_pekerjaan'},
+                        {data:'l_pendapatan',name:'l_pendapatan'},
+                        {data:'l_status_tinggal',name:'l_status_tinggal'},                        
+                        {data:'l_tanggungan',name:'l_tanggungan'}                        
                     ]
                 });
             } );

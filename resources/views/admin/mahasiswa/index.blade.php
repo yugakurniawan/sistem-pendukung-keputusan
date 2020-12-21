@@ -8,7 +8,7 @@
     <div class="col-12">
         <div class="card-box">
 
-            <h4 class="header-title m-t-0">Tambah Mahasiswa</h4>
+            <h4 class="header-title m-t-0">Tambah Warga</h4>
 
             @include('admin.mahasiswa.add')
             {{-- @include('admin.user.edit-user') --}}
@@ -24,7 +24,7 @@
 <div class="row">
     <div class="col-12">
         <div class="card-box table-responsive">
-            <h4 class="m-t-0 header-title"><b>Mahasiswa Berprestasi</b></h4>
+            <h4 class="m-t-0 header-title"><b>Warga Penerima BPNT</b></h4>
             <p class="text-muted font-14 m-b-30">
             
             </p>
@@ -33,20 +33,20 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>NIM</th>
                     <th>Nama Lengkap</th>
-                    <th>Fakultas</th>
-                    <th>Prestasi</th>
-                    <th>Bahasa Asing</th>
-                    <th>Karya Ilmiah</th>
-                    <th>IPK</th>
-                    <th>Indeks SKS</th>
+                    <th>usia</th>
+                    <th>Status Pernikahan</th>
+                    <th>Pekerjaan</th>
+                    <th>Pendapatan</th>
+                    <th>Status Tinggal</th>
+                    <th>Tanggungan</th>
                     <th>Aksi</th>                                            
                 </tr>
                 </thead>
 
 
                 <tbody>
+
                 </tbody>
             </table>
         </div>
@@ -83,14 +83,13 @@
                     order:[0,'desc'],
                     columns:[
                         {data:'id', name: 'id'},
-                        {data:'nim',name :'nim'},
                         {data:'nama', name: 'nama'},
-                        {data:'fakultas',name:'fakultas'},
-                        {data:'prestasi',name:'prestasi'},
-                        {data:'bahasa_asing',name:'bahasa_asing'},
-                        {data:'karya_ilmiah',name:'karya_ilmiah'},
-                        {data:'ipk',name:'ipk'},
-                        {data:'indeks_sks',name:'indeks_sks'},
+                        {data:'usia',name :'usia'},
+                        {data:'status_pernikahan',name:'status_pernikahan'},
+                        {data:'pekerjaan',name:'pekerjaan'},
+                        {data:'pendapatan',name:'pendapatan'},
+                        {data:'status_tinggal',name:'status_tinggal'},
+                        {data:'tanggungan',name:'tanggungan'},
                         {data:'aksi',name: 'aksi',searchable:false,orderable: false}                        
                     ]
                 });

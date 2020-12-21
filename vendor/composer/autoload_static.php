@@ -496,7 +496,8 @@ class ComposerStaticInit80617ef69f821e50b6eef147cd092e63
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\analisaTopsis' => __DIR__ . '/../..' . '/app/Http/Controllers/analisaTopsis.php',
-        'App\\Http\\Controllers\\mahasiswaController' => __DIR__ . '/../..' . '/app/Http/Controllers/mahasiswaController.php',
+        'App\\Http\\Controllers\\settingController' => __DIR__ . '/../..' . '/app/Http/Controllers/settingController.php',
+        'App\\Http\\Controllers\\wargaController' => __DIR__ . '/../..' . '/app/Http/Controllers/wargaController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -506,9 +507,9 @@ class ComposerStaticInit80617ef69f821e50b6eef147cd092e63
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Http\\Middleware\\roleMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/roleMiddleware.php',
-        'App\\Model\\Mahasiswa' => __DIR__ . '/../..' . '/app/Model/Mahasiswa.php',
         'App\\Model\\Role' => __DIR__ . '/../..' . '/app/Model/Role.php',
         'App\\Model\\Setting' => __DIR__ . '/../..' . '/app/Model/Setting.php',
+        'App\\Model\\Warga' => __DIR__ . '/../..' . '/app/Model/Warga.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -4493,7 +4494,6 @@ class ComposerStaticInit80617ef69f821e50b6eef147cd092e63
         'Yajra\\DataTables\\Utilities\\Config' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/Utilities/Config.php',
         'Yajra\\DataTables\\Utilities\\Helper' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/Utilities/Helper.php',
         'Yajra\\DataTables\\Utilities\\Request' => __DIR__ . '/..' . '/yajra/laravel-datatables-oracle/src/Utilities/Request.php',
-        'mahasiswaSeed' => __DIR__ . '/../..' . '/database/seeds/mahasiswaSeed.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',
@@ -4565,6 +4565,7 @@ class ComposerStaticInit80617ef69f821e50b6eef147cd092e63
         'roleSeed' => __DIR__ . '/../..' . '/database/seeds/roleSeed.php',
         'seedSetting' => __DIR__ . '/../..' . '/database/seeds/seedSetting.php',
         'userSeed' => __DIR__ . '/../..' . '/database/seeds/userSeed.php',
+        'wargaSeed' => __DIR__ . '/../..' . '/database/seeds/wargaSeed.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

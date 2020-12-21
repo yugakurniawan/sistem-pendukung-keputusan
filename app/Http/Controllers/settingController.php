@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use  App\Model\Setting;
-use Validator;
+// use Validator;
+use Illuminate\Support\Facades\Validator;
 class settingController extends Controller
 {
     //
@@ -21,8 +22,13 @@ class settingController extends Controller
             'w_c4' => 'required|numeric',
             'cost_c4' => 'required',
             'w_c5' => 'required|numeric',
-            'cost_c5' => 'required'
+            'cost_c5' => 'required',
+            'w_c6' => 'required|numeric',
+            'cost_c6' => 'required'
         ]);
+
+        // dd($request);
+
         $data = ['stored'=>true];
         if($validator->fails() ){
             $data['stored'] = false;
@@ -39,11 +45,14 @@ class settingController extends Controller
             $c4['is_cost'] = $request->input('cost_c4');
             $c5['weight'] = $request->input('w_c5');
             $c5['is_cost'] = $request->input('cost_c5');
+            $c6['weight'] = $request->input('w_c6');
+            $c6['is_cost'] = $request->input('cost_c6');
             Setting::setValue('c1',json_encode($c1),true);
             Setting::setValue('c2',json_encode($c2),true);
             Setting::setValue('c3',json_encode($c3),true);
             Setting::setValue('c4',json_encode($c4),true);
             Setting::setValue('c5',json_encode($c5),true);
+            Setting::setValue('c6',json_encode($c6),true);
             $data['msg'] = "Berhasil menyimpan Pengaturan Pembobotan";
             
             return response()->json($data, 200);

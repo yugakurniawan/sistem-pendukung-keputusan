@@ -17,11 +17,12 @@
                 <thead>
                 <tr>
                     <th>Atribut</th>
-                    <th>Prestasi (C1)</th>
-                    <th>Karya Ilmiah (C2)</th>
-                    <th>Bahasa Asing (C3)</th>
-                    <th>IPK (C4)</th>
-                    <th>Indeks SKS (C5)</th>
+                    <th>usia</th>
+                    <th>Status Pernikahan</th>
+                    <th>Pekerjaan</th>
+                    <th>Pendapatan</th>
+                    <th>Status Tinggal</th>
+                    <th>Tanggungan</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -32,6 +33,7 @@
                         <td>{{$solusi['c3']['positif']}}</td>
                         <td>{{$solusi['c4']['positif']}}</td>
                         <td>{{$solusi['c5']['positif']}}</td>
+                        <td>{{$solusi['c6']['positif']}}</td>
                     </tr>
                     <tr>
                         <td><b>Negatif</b></td>
@@ -40,6 +42,7 @@
                         <td>{{$solusi['c3']['negatif']}}</td>
                         <td>{{$solusi['c4']['negatif']}}</td>
                         <td>{{$solusi['c5']['negatif']}}</td>
+                        <td>{{$solusi['c6']['negatif']}}</td>
                     </tr>
                 </tbody>
 

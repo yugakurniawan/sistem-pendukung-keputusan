@@ -19,7 +19,7 @@
 <!-- end page title end breadcrumb -->
 
 
-<div class="row">
+{{-- <div class="row">
     <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
         <div class="card-box tilebox-one">
             <i class="fi-box float-right"></i>
@@ -85,7 +85,7 @@
         </div>
     </div>
     <h4>Total: {{$mahasiswa}} Mahasiswa </h4>
-</div>
+</div> --}}
 
 
 

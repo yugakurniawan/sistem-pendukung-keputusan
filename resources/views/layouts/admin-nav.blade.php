@@ -6,7 +6,7 @@
             <a href="/"><i class="fi-air-play"></i>Dashboard</a>
         </li>
         <li class="has-submenu">
-            <a href="/amahasiswa"><i class="fa fa-users"></i>Mahasiswa</a>
+            <a href="/awarga"><i class="fa fa-users"></i>Warga</a>
         </li>
         <li class="has-submenu">
             <a href="/asetting"><i class="fa fa-gear"></i>Setting</a>

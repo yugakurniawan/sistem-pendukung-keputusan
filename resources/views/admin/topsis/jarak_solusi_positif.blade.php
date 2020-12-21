@@ -18,11 +18,12 @@
                 <tr>
                     <th>#</th>
                     <th>Nama Lengkap</th>
-                    <th>Prestasi (C1)</th>
-                    <th>Karya Ilmiah (C2)</th>
-                    <th>Bahasa Asing (C3)</th>
-                    <th>IPK (C4)</th>
-                    <th>Indeks SKS (C5)</th>
+                    <th>usia</th>
+                    <th>Status Pernikahan</th>
+                    <th>Pekerjaan</th>
+                    <th>Pendapatan</th>
+                    <th>Status Tinggal</th>
+                    <th>Tanggungan</th>
                     <th>Total</th>
                 </tr>
                 </thead>
@@ -48,13 +49,21 @@
                     ajax: '{!! route('admin.topsis.jarak_solusi_positif') !!}',
                     order:[0,'desc'],
                     columns:[
+                        // {data:'id', name: 'id'},
+                        // {data:'nama', name: 'nama'},
+                        // {data:'a_prestasi',name:'a_prestasi'},
+                        // {data:'a_karya_ilmiah',name:'a_karya_ilmiah'},
+                        // {data:'a_bahasa_asing',name:'a_bahasa_asing'},
+                        // {data:'a_ipk',name:'a_ipk'},
+                        // {data:'a_indeks_sks',name:'a_indeks_sks'},
                         {data:'id', name: 'id'},
                         {data:'nama', name: 'nama'},
-                        {data:'a_prestasi',name:'a_prestasi'},
-                        {data:'a_karya_ilmiah',name:'a_karya_ilmiah'},
-                        {data:'a_bahasa_asing',name:'a_bahasa_asing'},
-                        {data:'a_ipk',name:'a_ipk'},
-                        {data:'a_indeks_sks',name:'a_indeks_sks'},
+                        {data:'a_usia',name:'a_usia'},
+                        {data:'a_status_pernikahan',name:'a_status_pernikahan'},
+                        {data:'a_pekerjaan',name:'a_pekerjaan'},
+                        {data:'a_pendapatan',name:'a_pendapatan'},
+                        {data:'a_status_tinggal',name:'a_status_tinggal'},                        
+                        {data:'a_tanggungan',name:'a_tanggungan'},
                         {data:'a_total',name:'a_total'}                        
                     ]
                 });

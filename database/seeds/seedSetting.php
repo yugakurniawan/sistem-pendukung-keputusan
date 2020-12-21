@@ -18,6 +18,7 @@ class seedSetting extends Seeder
             'c3'=>json_encode(['weight' => 5,'is_cost'=> true]),
             'c4'=>json_encode(['weight' => 1,'is_cost'=> false]),
             'c5'=>json_encode(['weight' => 3,'is_cost'=> true]),
+            'c6'=>json_encode(['weight' => 3,'is_cost'=> true]),
 
         
         ];

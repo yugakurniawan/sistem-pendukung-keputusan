@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\Mahasiswa;
+use App\Model\Warga;
 use Yajra\Datatables\Datatables;
 
 class analisaTopsis extends Controller
@@ -13,153 +13,194 @@ class analisaTopsis extends Controller
     public function get_linguistik()
     {
         # code...
-        $mahasiswa = \App\Model\Mahasiswa::all();
-        //Prestasi
-        foreach ($mahasiswa as $key) {
+        $warga = \App\Model\Warga::all();
+        //usia
+        foreach ($warga as $key) {
             # code...
-            if (($key->prestasi > 0) and ($key->prestasi <= 20)) {
+            if (($key->usia > 0) and ($key->usia < 20)) {
                 # code...
-                $key->l_prestasi = 0;
-            }elseif (($key->prestasi > 20) and ($key->prestasi <= 40)) {
+                $key->l_usia = 1;
+            }elseif (($key->usia >= 20) and ($key->usia <= 30)) {
                 # code...
-                $key->l_prestasi = 0.2;
-            }elseif (($key->prestasi > 40) and ($key->prestasi <= 80)) {
+                $key->l_usia = 2;
+            }elseif (($key->usia > 30) and ($key->usia <= 40)) {
                 # code...
-                $key->l_prestasi = 0.4;
-            }elseif (($key->prestasi > 80) and ($key->prestasi <= 100)) {
+                $key->l_usia = 3;
+            }elseif (($key->usia > 40) and ($key->usia <= 50)) {
                 # code...
-                $key->l_prestasi = 0.6;
-            }elseif (($key->prestasi > 100) and ($key->prestasi <= 120)) {
+                $key->l_usia = 4;
+            }elseif ($key->usia > 50) {
                 # code...
-                $key->l_prestasi = 0.8;
-            }elseif ($key->prestasi > 120) {
-                # code...
-                $key->l_prestasi = 1;
+                $key->l_usia = 5;
             }
         }
 
         //karya tulis ilmiah
-        foreach ($mahasiswa as $key) {
+        foreach ($warga as $key) {
             # code...
-            if (($key->karya_ilmiah > 0) and ($key->karya_ilmiah <= 40)) {
+            if (($key->status_pernikahan == "Belum Menikah")) {
                 # code...
-                $key->l_karya_ilmiah = 0.2;
-            }elseif (($key->karya_ilmiah > 40) and ($key->karya_ilmiah <= 70)) {
+                $key->l_status_pernikahan = 1;
+            }elseif (($key->status_pernikahan == "Menikah")) {
                 # code...
-                $key->l_karya_ilmiah = 0.5;
-            }elseif (($key->karya_ilmiah > 70) and ($key->karya_ilmiah <= 85)) {
+                $key->l_status_pernikahan = 2;
+            }elseif (($key->status_pernikahan == "Cerai Hidup")) {
                 # code...
-                $key->l_karya_ilmiah = 0.75;
-            }elseif (($key->karya_ilmiah > 85) and ($key->karya_ilmiah <= 100)) {
+                $key->l_status_pernikahan = 3;
+            }elseif (($key->status_pernikahan == "Cerai Mati")) {
                 # code...
-                $key->l_karya_ilmiah = 1;
+                $key->l_status_pernikahan = 4;
             }
         }
         //bahasa asing
-        foreach ($mahasiswa as $key) {
+        foreach ($warga as $key) {
             # code...
-            if (($key->bahasa_asing > 0) and ($key->bahasa_asing <= 30)) {
+            if (($key->pekerjaan == "PNS")) {
                 # code...
-                $key->l_bahasa_asing = 0.2;
-            }elseif (($key->bahasa_asing > 30) and ($key->bahasa_asing <= 60)) {
+                $key->l_pekerjaan = 1;
+            }elseif (($key->pekerjaan == "TNI")) {
                 # code...
-                $key->l_bahasa_asing = 0.5;
-            }elseif (($key->bahasa_asing > 60) and ($key->bahasa_asing <= 80)) {
+                $key->l_pekerjaan = 1;
+            }elseif (($key->pekerjaan == "POLRI")) {
                 # code...
-                $key->l_bahasa_asing = 0.75;
-            }elseif (($key->bahasa_asing > 80) and ($key->bahasa_asing <= 100)) {
+                $key->l_pekerjaan = 1;
+            }elseif (($key->pekerjaan == "Wirausaha")) {
                 # code...
-                $key->l_bahasa_asing = 1;
+                $key->l_pekerjaan = 2;
+            }elseif (($key->pekerjaan == "Karyawan")) {
+                # code...
+                $key->l_pekerjaan = 3;
+            }elseif (($key->pekerjaan == "Petani")) {
+                # code...
+                $key->l_pekerjaan = 4;
+            }elseif (($key->pekerjaan == "Nelayan")) {
+                # code...
+                $key->l_pekerjaan = 4;
+            }elseif (($key->pekerjaan == "Pengangguran")) {
+                # code...
+                $key->l_pekerjaan = 5;
             }
         }
 
         //IPK
-        foreach ($mahasiswa as $key) {
+        foreach ($warga as $key) {
             # code...
-            if (($key->ipk > 3) and ($key->ipk <= 3.25)) {
+            if (($key->pendapatan > 3000000)) {
                 # code...
-                $key->l_ipk = 0.2;
-            }elseif (($key->ipk > 3.25) and ($key->ipk <= 3.5)) {
+                $key->l_pendapatan = 1;
+            }elseif (($key->pendapatan > 2500000) and ($key->pendapatan <= 3000000)) {
                 # code...
-                $key->l_ipk = 0.5;
-            }elseif (($key->ipk > 3.5) and ($key->ipk <= 3.75)) {
+                $key->l_pendapatan = 2;
+            }elseif (($key->pendapatan > 1750000) and ($key->pendapatan <= 2500000)) {
                 # code...
-                $key->l_ipk = 0.75;
-            }elseif (($key->ipk > 3.75) and ($key->ipk <= 4)) {
+                $key->l_pendapatan = 3;
+            }elseif (($key->pendapatan >= 750000) and ($key->pendapatan <= 1750000)) {
                 # code...
-                $key->l_ipk = 1;
+                $key->l_pendapatan = 4;
+            }elseif (($key->pendapatan < 750000)) {
+                # code...
+                $key->l_pendapatan = 5;
             }
         }
         //indeks_sks
-        foreach ($mahasiswa as $key) {
+        foreach ($warga as $key) {
             # code...
-            if (($key->indeks_sks > 0) and ($key->indeks_sks <= 18)) {
+            if (($key->status_tinggal == "Rumah Permanen")) {
                 # code...
-                $key->l_indeks_sks = 0.2;
-            }elseif (($key->indeks_sks > 18) and ($key->indeks_sks <= 19)) {
+                $key->l_status_tinggal = 1;
+            }elseif (($key->status_tinggal == "Rumah Semi Permanen")) {
                 # code...
-                $key->l_indeks_sks = 0.5;
-            }elseif (($key->indeks_sks > 19) and ($key->indeks_sks <= 21)) {
+                $key->l_status_tinggal = 2;
+            }elseif (($key->status_tinggal == "Kontrakan")) {
                 # code...
-                $key->l_indeks_sks = 0.75;
-            }elseif (($key->indeks_sks > 21) and ($key->indeks_sks <= 24)) {
+                $key->l_status_tinggal = 3;
+            }elseif (($key->status_tinggal == "Rumah Kayu")) {
                 # code...
-                $key->l_indeks_sks = 1;
+                $key->l_status_tinggal = 4;
+            }elseif (($key->status_tinggal == "Rumah Gubuk")) {
+                # code...
+                $key->l_status_tinggal = 5;
             }
         }
 
-        return $mahasiswa->all();
+        foreach ($warga as $key) {
+            # code...
+            if ($key->tanggungan == 0) {
+                # code...
+                $key->l_tanggungan = 1;
+            }elseif ($key->tanggungan == 1) {
+                # code...
+                $key->l_tanggungan = 2;
+            }elseif ($key->tanggungan == 2) {
+                # code...
+                $key->l_tanggungan = 3;
+            }elseif ($key->tanggungan == 3) {
+                # code...
+                $key->l_tanggungan = 4;
+            }elseif ($key->tanggungan >= 4) {
+                # code...
+                $key->l_tanggungan = 5;
+            }
+        }
+
+        return $warga->all();
     }
     public function get_normalized()
     {
         # code...
-        $mahasiswa = $this->get_linguistik();
-        $temp_ipk = 0;
-        $temp_prestasi = 0;
-        $temp_karya_ilmiah = 0;
-        $temp_bahasa_asing = 0;
-        $temp_indeks_sks = 0; 
-        foreach ($mahasiswa as $key) {
+        $warga = $this->get_linguistik();
+        $temp_usia = 0;
+        $temp_status_pernikahan = 0;
+        $temp_pekerjaan = 0;
+        $temp_pendapatan = 0;
+        $temp_status_tinggal = 0; 
+        $temp_tanggungan = 0; 
+        foreach ($warga as $key) {
             # code...
-            $temp_ipk += $key->l_ipk*$key->l_ipk;
-            $temp_prestasi += $key->l_prestasi*$key->l_prestasi;
-            $temp_karya_ilmiah += $key->l_karya_ilmiah*$key->l_karya_ilmiah;
-            $temp_bahasa_asing += $key->l_bahasa_asing*$key->l_bahasa_asing;
-            $temp_indeks_sks += $key->l_indeks_sks*$key->l_indeks_sks;
+            $temp_usia += $key->l_usia*$key->l_usia;
+            $temp_status_pernikahan += $key->l_status_pernikahan*$key->l_status_pernikahan;
+            $temp_pekerjaan += $key->l_pekerjaan*$key->l_pekerjaan;
+            $temp_pendapatan += $key->l_pendapatan*$key->l_pendapatan;
+            $temp_status_tinggal += $key->l_status_tinggal*$key->l_status_tinggal;
+            $temp_tanggungan += $key->l_tanggungan*$key->l_tanggungan;
         }
-        foreach ($mahasiswa as $key) {
+        foreach ($warga as $key) {
             # code...
-            $key->r_ipk = $key->l_ipk/(sqrt($temp_ipk));
-            $key->r_prestasi = $key->l_prestasi/(sqrt($temp_prestasi));
-            $key->r_karya_ilmiah = $key->l_karya_ilmiah/(sqrt($temp_karya_ilmiah));
-            $key->r_bahasa_asing = $key->l_bahasa_asing/(sqrt($temp_bahasa_asing));
-            $key->r_indeks_sks = $key->l_indeks_sks/(sqrt($temp_indeks_sks));
+            $key->r_usia = $key->l_usia/(sqrt($temp_usia));
+            $key->r_status_pernikahan = $key->l_status_pernikahan/(sqrt($temp_status_pernikahan));
+            $key->r_pekerjaan = $key->l_pekerjaan/(sqrt($temp_pekerjaan));
+            $key->r_pendapatan = $key->l_pendapatan/(sqrt($temp_pendapatan));
+            $key->r_status_tinggal = $key->l_status_tinggal/(sqrt($temp_status_tinggal));
+            $key->r_tanggungan = $key->l_tanggungan/(sqrt($temp_tanggungan));
         }
 
+        // dd($temp_tanggungan);
 
-        return $mahasiswa;        
+        return $warga;        
     }
 
     public function get_terbobot()
     {
         # code...
-        $mahasiswa = $this->get_normalized();
+        $warga = $this->get_normalized();
         $options = \App\Model\Setting::getAllKeyValue();
         $c1 = json_decode($options['c1']);
         $c2 = json_decode($options['c2']);
         $c3 = json_decode($options['c3']);
         $c4 = json_decode($options['c4']);
         $c5 = json_decode($options['c5']);
-        foreach ($mahasiswa as $key) {
+        $c6 = json_decode($options['c6']);
+        foreach ($warga as $key) {
             # code...
-            $key->v_ipk = $key->r_ipk*$c1->weight;
-            $key->v_prestasi = $key->r_prestasi*$c2->weight;
-            $key->v_karya_ilmiah = $key->r_karya_ilmiah*$c3->weight;
-            $key->v_bahasa_asing = $key->r_bahasa_asing*$c4->weight;
-            $key->v_indeks_sks = $key->r_indeks_sks*$c5->weight;
+            $key->v_usia = $key->r_usia*$c1->weight;
+            $key->v_status_pernikahan = $key->r_status_pernikahan*$c2->weight;
+            $key->v_pekerjaan = $key->r_pekerjaan*$c3->weight;
+            $key->v_pendapatan = $key->r_pendapatan*$c4->weight;
+            $key->v_status_tinggal = $key->r_status_tinggal*$c5->weight;
+            $key->v_tanggungan = $key->r_tanggungan*$c6->weight;
         }
 
-        return $mahasiswa;
+        return $warga;
     }
     public function get_ideal()
     {
@@ -170,27 +211,31 @@ class analisaTopsis extends Controller
         $c3 = json_decode($options['c3']);
         $c4 = json_decode($options['c4']);
         $c5 = json_decode($options['c5']);
-        $mahasiswa = $this->get_terbobot();
-        $temp_ipk = [];
-        $temp_prestasi = [];
-        $temp_karya_ilmiah = [];
-        $temp_bahasa_asing = [];
-        $temp_indeks_sks = [];
-        foreach ($mahasiswa as $key) {
+        $c6 = json_decode($options['c6']);
+        $warga = $this->get_terbobot();
+        $temp_usia = [];
+        $temp_status_pernikahan = [];
+        $temp_pekerjaan = [];
+        $temp_pendapatan = [];
+        $temp_status_tinggal = [];
+        $temp_tanggungan = [];
+        foreach ($warga as $key) {
             # code...
-            $temp_ipk[] = $key->v_ipk;
-            $temp_prestasi[] = $key->v_prestasi;
-            $temp_karya_ilmiah[] = $key->v_karya_ilmiah;
-            $temp_bahasa_asing[] = $key->v_bahasa_asing;
-            $temp_indeks_sks[] = $key->v_indeks_sks;
+            $temp_usia[] = $key->v_usia;
+            $temp_status_pernikahan[] = $key->v_status_pernikahan;
+            $temp_pekerjaan[] = $key->v_pekerjaan;
+            $temp_pendapatan[] = $key->v_pendapatan;
+            $temp_status_tinggal[] = $key->v_status_tinggal;
+            $temp_tanggungan[] = $key->v_tanggungan;
         }
         
         $solusi = array(
-            'c1' => array('positif' => (!$c1->is_cost) ?  max($temp_prestasi) :  min($temp_prestasi),'negatif' => ($c1->is_cost) ?  max($temp_prestasi) :  min($temp_prestasi)),
-            'c2' => array('positif' => (!$c2->is_cost) ?  max($temp_karya_ilmiah) :  min($temp_karya_ilmiah),'negatif' => ($c2->is_cost) ?  max($temp_karya_ilmiah) :  min($temp_karya_ilmiah)),
-            'c3' => array('positif' => (!$c3->is_cost) ?  max($temp_bahasa_asing) :  min($temp_bahasa_asing),'negatif' => ($c3->is_cost) ?  max($temp_bahasa_asing) :  min($temp_bahasa_asing)),
-            'c4' => array('positif' => (!$c4->is_cost) ?  max($temp_ipk) :  min($temp_ipk),'negatif' => ($c4->is_cost) ?  max($temp_ipk) :  min($temp_ipk)),
-            'c5' => array('positif' => (!$c5->is_cost) ?  max($temp_indeks_sks) :  min($temp_indeks_sks),'negatif' => ($c5->is_cost) ?  max($temp_indeks_sks) :  min($temp_indeks_sks)),
+            'c1' => array('positif' => (!$c1->is_cost) ?  max($temp_usia) :  min($temp_usia),'negatif' => ($c1->is_cost) ?  max($temp_usia) :  min($temp_usia)),
+            'c2' => array('positif' => (!$c2->is_cost) ?  max($temp_status_pernikahan) :  min($temp_status_pernikahan),'negatif' => ($c2->is_cost) ?  max($temp_status_pernikahan) :  min($temp_status_pernikahan)),
+            'c3' => array('positif' => (!$c3->is_cost) ?  max($temp_pekerjaan) :  min($temp_pekerjaan),'negatif' => ($c3->is_cost) ?  max($temp_pekerjaan) :  min($temp_pekerjaan)),
+            'c4' => array('positif' => (!$c4->is_cost) ?  max($temp_pendapatan) :  min($temp_pendapatan),'negatif' => ($c4->is_cost) ?  max($temp_pendapatan) :  min($temp_pendapatan)),
+            'c5' => array('positif' => (!$c5->is_cost) ?  max($temp_status_tinggal) :  min($temp_status_tinggal),'negatif' => ($c5->is_cost) ?  max($temp_status_tinggal) :  min($temp_status_tinggal)),
+            'c6' => array('positif' => (!$c6->is_cost) ?  max($temp_tanggungan) :  min($temp_tanggungan),'negatif' => ($c6->is_cost) ?  max($temp_tanggungan) :  min($temp_tanggungan)),
         );
 
         return $solusi;
@@ -198,125 +243,150 @@ class analisaTopsis extends Controller
     public function get_positif_distance()
     {
         # code...
-        $mahasiswa = $this->get_terbobot();
+        $warga = $this->get_terbobot();
         $solusi_ideal = $this->get_ideal();
-        foreach ($mahasiswa as $key) {
+        foreach ($warga as $key) {
             # code...
-            $key->a_prestasi = pow(($key->v_prestasi - $solusi_ideal['c1']['positif']),2);
-            $key->a_karya_ilmiah = pow(($key->v_karya_ilmiah - $solusi_ideal['c2']['positif']),2);
-            $key->a_bahasa_asing = pow(($key->v_bahasa_asing - $solusi_ideal['c3']['positif']),2);
-            $key->a_ipk = pow(($key->v_ipk - $solusi_ideal['c4']['positif']),2);
-            $key->a_indeks_sks = pow(($key->v_indeks_sks - $solusi_ideal['c5']['positif']),2);
-            $key->a_total = sqrt($key->a_prestasi+$key->a_karya_ilmiah+$key->a_bahasa_asing+$key->a_ipk+$key->a_indeks_sks);
+            $key->a_usia = pow(($key->v_usia - $solusi_ideal['c1']['positif']),2);
+            $key->a_status_pernikahan = pow(($key->v_status_pernikahan - $solusi_ideal['c2']['positif']),2);
+            $key->a_pekerjaan = pow(($key->v_pekerjaan - $solusi_ideal['c3']['positif']),2);
+            $key->a_pendapatan = pow(($key->v_pendapatan - $solusi_ideal['c4']['positif']),2);
+            $key->a_status_tinggal = pow(($key->v_status_tinggal - $solusi_ideal['c5']['positif']),2);
+            $key->a_tanggungan = pow(($key->v_tanggungan - $solusi_ideal['c6']['positif']),2);
+            $key->a_total = sqrt($key->a_usia+$key->a_status_pernikahan+$key->a_pekerjaan+$key->a_pendapatan+$key->a_status_tinggal+$key->a_pendapatan);
         }
-        return $mahasiswa;
+        return $warga;
     }
     public function get_negatif_distance()
     {
         # code...
-        $mahasiswa = $this->get_positif_distance();
+        $warga = $this->get_positif_distance();
         $solusi_ideal = $this->get_ideal();
-        foreach ($mahasiswa as $key) {
+        foreach ($warga as $key) {
             # code...
-            $key->b_prestasi = pow(($key->v_prestasi - $solusi_ideal['c1']['negatif']),2);
-            $key->b_karya_ilmiah = pow(($key->v_karya_ilmiah - $solusi_ideal['c2']['negatif']),2);
-            $key->b_bahasa_asing = pow(($key->v_bahasa_asing - $solusi_ideal['c3']['negatif']),2);
-            $key->b_ipk = pow(($key->v_ipk - $solusi_ideal['c4']['negatif']),2);
+            $key->b_usia = pow(($key->v_usia - $solusi_ideal['c1']['negatif']),2);
+            $key->b_status_pernikahan = pow(($key->v_status_pernikahan - $solusi_ideal['c2']['negatif']),2);
+            $key->b_pekerjaan = pow(($key->v_pekerjaan - $solusi_ideal['c3']['negatif']),2);
+            $key->b_pendapatan = pow(($key->v_pendapatan - $solusi_ideal['c4']['negatif']),2);
             $key->b_indeks_sks = pow(($key->v_indeks_sks - $solusi_ideal['c5']['negatif']),2);
-            $key->b_total = sqrt($key->b_prestasi+$key->b_karya_ilmiah+$key->b_bahasa_asing+$key->b_ipk+$key->b_indeks_sks);
+            $key->b_tanggungan = pow(($key->v_tanggungan - $solusi_ideal['c6']['negatif']),2);
+            $key->b_total = sqrt($key->b_usia+$key->b_status_pernikahan+$key->b_pekerjaan+$key->b_pendapatan+$key->b_indeks_sks+$key->b_tanggungan);
         }
-        return $mahasiswa;
+        return $warga;
     }
     public function get_nilai_preferensi()
     {
         # code...
-        $mahasiswa = $this->get_negatif_distance();
-        foreach ($mahasiswa as $key) {
+        $warga = $this->get_negatif_distance();
+        foreach ($warga as $key) {
             # code...
             $key->nilai_preferensi = $key->b_total/($key->a_total + $key->b_total);
         }
-        return $mahasiswa;
+        return $warga;
     }
     public function linguistik()
     {
         # code...
-        $mahasiswa = $this->get_linguistik();
-        return Datatables::of($mahasiswa)
-                ->setRowId(function(Mahasiswa $mahasiswa){
-                    return $mahasiswa->id;
-                })->editColumn('l_prestasi',function($mahasiswa){
-                    if ($mahasiswa->l_prestasi == 0 ) {
+        $warga = $this->get_linguistik();
+        return Datatables::of($warga)
+                ->setRowId(function(Warga $warga){
+                    return $warga->id;
+                })->editColumn('l_usia',function($warga){
+                    if ($warga->l_usia == 1 ) {
                         # code...
                         return "sangat rendah";
-                    }elseif ($mahasiswa->l_prestasi == 0.2) {
-                        # code...
-                        return "Cukup Rendah";
-                    }elseif ($mahasiswa->l_prestasi == 0.4) {
+                    }elseif ($warga->l_usia == 2) {
                         # code...
                         return "Rendah";
-                    }elseif ($mahasiswa->l_prestasi == 0.6) {
+                    }elseif ($warga->l_usia == 3) {
                         # code...
                         return "Sedang";
-                    }elseif ($mahasiswa->l_prestasi == 0.8) {
+                    }elseif ($warga->l_usia == 4) {
                         # code...
                         return "Tinggi";
-                    }elseif ($mahasiswa->l_prestasi == 1) {
+                    }elseif ($warga->l_usia == 5) {
                         # code...
                         return "Sangat Tinggi";
                     }
-                })->editColumn('l_karya_ilmiah',function($mahasiswa){
-                    if ($mahasiswa->l_karya_ilmiah == 0.2 ) {
+                })->editColumn('l_status_pernikahan',function($warga){
+                    if ($warga->l_status_pernikahan == 1 ) {
                         # code...
                         return "Rendah";
-                    }elseif ($mahasiswa->l_karya_ilmiah == 0.5) {
+                    }elseif ($warga->l_status_pernikahan == 2) {
                         # code...
                         return "Cukup";
-                    }elseif ($mahasiswa->l_karya_ilmiah == 0.75) {
+                    }elseif ($warga->l_status_pernikahan == 3) {
                         # code...
                         return "Tinggi";
-                    }elseif ($mahasiswa->l_karya_ilmiah == 1) {
+                    }elseif ($warga->l_status_pernikahan == 4) {
                         # code...
                         return "Sangat Tinggi";
                     }
-                })->editColumn('l_bahasa_asing',function($mahasiswa){
-                    if ($mahasiswa->l_bahasa_asing == 0.2 ) {
+                })->editColumn('l_pekerjaan',function($warga){
+                    if ($warga->l_pekerjaan == 1 ) {
+                        # code...
+                        return "sangat rendah";
+                    }elseif ($warga->l_pekerjaan == 2) {
                         # code...
                         return "Rendah";
-                    }elseif ($mahasiswa->l_bahasa_asing == 0.5) {
+                    }elseif ($warga->l_pekerjaan == 3) {
                         # code...
-                        return "Cukup";
-                    }elseif ($mahasiswa->l_bahasa_asing == 0.75) {
+                        return "Sedang";
+                    }elseif ($warga->l_pekerjaan == 4) {
                         # code...
                         return "Tinggi";
-                    }elseif ($mahasiswa->l_bahasa_asing == 1) {
+                    }elseif ($warga->l_pekerjaan == 5) {
                         # code...
                         return "Sangat Tinggi";
                     }
-                })->editColumn('l_ipk',function($mahasiswa){
-                    if ($mahasiswa->l_ipk == 0.2 ) {
+                })->editColumn('l_pendapatan',function($warga){
+                    if ($warga->l_pendapatan == 1 ) {
+                        # code...
+                        return "sangat rendah";
+                    }elseif ($warga->l_pendapatan == 2) {
                         # code...
                         return "Rendah";
-                    }elseif ($mahasiswa->l_ipk == 0.5) {
+                    }elseif ($warga->l_pendapatan == 3) {
                         # code...
-                        return "Cukup";
-                    }elseif ($mahasiswa->l_ipk == 0.75) {
+                        return "Sedang";
+                    }elseif ($warga->l_pendapatan == 4) {
                         # code...
                         return "Tinggi";
-                    }elseif ($mahasiswa->l_ipk == 1) {
+                    }elseif ($warga->l_pendapatan == 5) {
                         # code...
                         return "Sangat Tinggi";
                     }
-                })->editColumn('l_indeks_sks',function($mahasiswa){
-                    if ($mahasiswa->l_indeks_sks == 0.2 ) {
+                })->editColumn('l_status_tinggal',function($warga){
+                    if ($warga->l_status_tinggal == 1 ) {
+                        # code...
+                        return "sangat rendah";
+                    }elseif ($warga->l_status_tinggal == 2) {
                         # code...
                         return "Rendah";
-                    }elseif ($mahasiswa->l_indeks_sks == 0.5) {
+                    }elseif ($warga->l_status_tinggal == 3) {
                         # code...
-                        return "Cukup";
-                    }elseif ($mahasiswa->l_indeks_sks == 0.75) {
+                        return "Sedang";
+                    }elseif ($warga->l_status_tinggal == 4) {
                         # code...
                         return "Tinggi";
-                    }elseif ($mahasiswa->l_indeks_sks == 1) {
+                    }elseif ($warga->l_status_tinggal == 5) {
+                        # code...
+                        return "Sangat Tinggi";
+                    }
+                })->editColumn('l_tanggungan',function($warga){
+                    if ($warga->l_tanggungan == 1 ) {
+                        # code...
+                        return "sangat rendah";
+                    }elseif ($warga->l_tanggungan == 2) {
+                        # code...
+                        return "Rendah";
+                    }elseif ($warga->l_tanggungan == 3) {
+                        # code...
+                        return "Sedang";
+                    }elseif ($warga->l_tanggungan == 4) {
+                        # code...
+                        return "Tinggi";
+                    }elseif ($warga->l_tanggungan == 5) {
                         # code...
                         return "Sangat Tinggi";
                     }
@@ -327,28 +397,31 @@ class analisaTopsis extends Controller
     public function matrix_keputusan()
     {
         # code...
-        $mahasiswa = $this->get_linguistik();
-        return Datatables::of($mahasiswa)
-                ->setRowId(function(Mahasiswa $mahasiswa){
-                    return $mahasiswa->id;
+        $warga = $this->get_linguistik();
+        return Datatables::of($warga)
+                ->setRowId(function(Warga $warga){
+                    return $warga->id;
                 })->make(true);
+
+        // dd($warga);
     }
     public function matrix_keputusan_ternormalisasi()
     {
         # code...
-        $mahasiswa = $this->get_normalized();
-        return Datatables::of($mahasiswa)
-                ->setRowId(function(Mahasiswa $mahasiswa){
-                    return $mahasiswa->id;
+        $warga = $this->get_normalized();
+        return Datatables::of($warga)
+                ->setRowId(function(Warga $warga){
+                    return $warga->id;
                 })->make(true);
+
     }
     public function matrix_keputusan_terbobot()
     {
         # code...
-        $mahasiswa = $this->get_terbobot();
-        return Datatables::of($mahasiswa)
-                ->setRowId(function(Mahasiswa $mahasiswa){
-                    return $mahasiswa->id;
+        $warga = $this->get_terbobot();
+        return Datatables::of($warga)
+                ->setRowId(function(Warga $warga){
+                    return $warga->id;
                 })->make(true);
     }
     
@@ -361,28 +434,28 @@ class analisaTopsis extends Controller
     public function jarak_solusi_positif()
     {
         # code...
-        $mahasiswa = $this->get_positif_distance();
-        return Datatables::of($mahasiswa)
-                ->setRowId(function(Mahasiswa $mahasiswa){
-                    return $mahasiswa->id;
+        $warga = $this->get_positif_distance();
+        return Datatables::of($warga)
+                ->setRowId(function(Warga $warga){
+                    return $warga->id;
                 })->make(true);
     }
     public function jarak_solusi_negatif()
     {
         # code...
-        $mahasiswa = $this->get_negatif_distance();
-        return Datatables::of($mahasiswa)
-                ->setRowId(function(Mahasiswa $mahasiswa){
-                    return $mahasiswa->id;
+        $warga = $this->get_negatif_distance();
+        return Datatables::of($warga)
+                ->setRowId(function(Warga $warga){
+                    return $warga->id;
                 })->make(true);
     }
     public function nilai_preferensi()
     {
         # code...
-        $mahasiswa = $this->get_nilai_preferensi();
-        return Datatables::of($mahasiswa)
-                ->setRowId(function(Mahasiswa $mahasiswa){
-                    return $mahasiswa->id;
+        $warga = $this->get_nilai_preferensi();
+        return Datatables::of($warga)
+                ->setRowId(function(Warga $warga){
+                    return $warga->id;
                 })->make(true);
     }
 

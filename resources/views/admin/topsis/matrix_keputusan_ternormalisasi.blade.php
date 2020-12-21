@@ -17,14 +17,13 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>NIM</th>
                     <th>Nama Lengkap</th>
-                    <th>Fakultas</th>
-                    <th>Prestasi (C1)</th>
-                    <th>Karya Ilmiah (C2)</th>
-                    <th>Bahasa Asing (C3)</th>
-                    <th>IPK (C4)</th>
-                    <th>Indeks SKS (C5)</th>
+                    <th>usia</th>
+                    <th>Status Pernikahan</th>
+                    <th>Pekerjaan</th>
+                    <th>Pendapatan</th>
+                    <th>Status Tinggal</th>
+                    <th>Tanggungan</th>
                 </tr>
                 </thead>
 
@@ -39,9 +38,31 @@
 
 
 @endsection
+{{-- @push('scripts')
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#bpnt").DataTable({
+                    processing: true,
+                    serverSide: true,
+                    ajax: '{!! route('admin.topsis.matrix_keputusan_ternormalisasi') !!}',
+                    order:[0,'desc'],
+                    columns:[
+                        {data:'id', name: 'id'},
+                        {data:'nama', name: 'nama'},
+                        {data:'usia',name :'usia'},
+                        {data:'status_pernikahan',name:'status_pernikahan'},
+                        {data:'pekerjaan',name:'pekerjaan'},
+                        {data:'pendapatan',name:'pendapatan'},
+                        {data:'status_tinggal',name:'status_tinggal'},
+                        {data:'tanggungan',name:'tanggungan'}                        
+                    ]
+                });
+            } );
+        </script>
+        @include("admin.script.form-modal-ajax")
+@endpush --}}
 @push('scripts')
         <script type="text/javascript">
-            
             $(document).ready(function() {
                 $("#table-mahasiswa").DataTable({
                     processing: true,
@@ -50,18 +71,16 @@
                     order:[0,'desc'],
                     columns:[
                         {data:'id', name: 'id'},
-                        {data:'nim',name :'nim'},
                         {data:'nama', name: 'nama'},
-                        {data:'fakultas',name:'fakultas'},
-                        {data:'r_prestasi',name:'r_prestasi'},
-                        {data:'r_karya_ilmiah',name:'r_karya_ilmiah'},
-                        {data:'r_bahasa_asing',name:'r_bahasa_asing'},
-                        {data:'r_ipk',name:'r_ipk'},
-                        {data:'r_indeks_sks',name:'r_indeks_sks'}                        
+                        {data:'r_usia',name :'r_usia'},
+                        {data:'r_status_pernikahan',name:'r_status_pernikahan'},
+                        {data:'r_pekerjaan',name:'r_pekerjaan'},
+                        {data:'r_pendapatan',name:'r_pendapatan'},
+                        {data:'r_status_tinggal',name:'r_status_tinggal'},
+                        {data:'r_tanggungan',name:'r_tanggungan'}
                     ]
                 });
-            } );
-
+            });
         </script>
         @include("admin.script.form-modal-ajax")
 @endpush

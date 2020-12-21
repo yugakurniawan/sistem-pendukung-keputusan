@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                              <label for="">Bobot Prestasi (C1)  </label>
+                              <label for="">Usia (C1)  </label>
                               <input type="text" name="w_c1" id="" class="form-control" placeholder="" aria-describedby="helpId" value="{{$c11->weight}}">
                         </div>
                         
@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                              <label for="">Bobot Karya Tulis Ilmiah (C2)  </label>
+                              <label for="">Status Pernikahan (C2)  </label>
                               <input type="text" name="w_c2" id="" class="form-control" placeholder="" aria-describedby="helpId" value="{{$c22->weight}}">
                         </div>
                         
@@ -71,7 +71,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                              <label for="">Bobot Bahasa Asing (C3)  </label>
+                              <label for="">Pekerjaan (C3)  </label>
                               <input type="text" name="w_c3" id="" class="form-control" placeholder="" aria-describedby="helpId" value="{{$c33->weight}}">
                         </div>
                         
@@ -98,7 +98,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                              <label for="">Bobot IPK (C4)  </label>
+                              <label for="">Pendapatan (C4)  </label>
                               <input type="text" name="w_c4" id="" class="form-control" placeholder="" aria-describedby="helpId" value="{{$c44->weight}}">
                         </div>
                         
@@ -125,7 +125,7 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="form-group">
-                              <label for="">Bobot Indeks SKS (C5)  </label>
+                              <label for="">Status Tinggal (C5)  </label>
                               <input type="text" name="w_c5" id="" class="form-control" placeholder="" aria-describedby="helpId" value="{{$c55->weight}}">
                         </div>
                         
@@ -138,6 +138,32 @@
                                   selected
                               @endif>Benefit</option>
                               <option value="1" @if ($c55->is_cost)
+                                    selected
+                                @endif>Cost</option>
+                          </select>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @if (isset($c6))
+                @php
+                    $c66 = json_decode($c6);
+                @endphp
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                              <label for="">Tanggungan (C6)  </label>
+                              <input type="text" name="w_c6" id="" class="form-control" placeholder="" aria-describedby="helpId" value="{{$c66->weight}}">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                          <label for="">Cost/Benefit</label>
+                          <select name="cost_c6" id="" class="form-control">
+                              <option value="0" @if (!$c66->is_cost)
+                                  selected
+                              @endif>Benefit</option>
+                              <option value="1" @if ($c66->is_cost)
                                     selected
                                 @endif>Cost</option>
                           </select>

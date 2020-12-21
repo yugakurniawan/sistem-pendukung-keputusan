@@ -15,23 +15,23 @@
 
 Route::get('/tes','analisaTopsis@get_positif_distance'); 
 Route::get('/tes2',function(){
-    $users = DB::table('mahasiswa')->select(DB::raw('SUM(prestasi) as jumlah'))->first();
+    $users = DB::table('warga')->select(DB::raw('SUM(prestasi) as jumlah'))->first();
     return $users->jumlah;
 });
 Route::group(['as' =>'admin.','middleware'=> 'auth'],function(){
     Route::get('/', function () {
-        $data['mahasiswa'] = count(\App\Model\Mahasiswa::all());
-        $data['fmipa'] = count(\App\Model\Mahasiswa::where('fakultas','FMIPA')->get());
-        $data['ft'] = count(\App\Model\Mahasiswa::where('fakultas','FT')->get());
-        $data['fbs'] = count(\App\Model\Mahasiswa::where('fakultas','FBS')->get());
-        $data['fik'] = count(\App\Model\Mahasiswa::where('fakultas','FIK')->get());
-        $data['fe'] = count(\App\Model\Mahasiswa::where('fakultas','FE')->get());
-        $data['fis'] = count(\App\Model\Mahasiswa::where('fakultas','FIS')->get());
-        $data['fip'] = count(\App\Model\Mahasiswa::where('fakultas','FIP')->get());
-        $data['fh'] = count(\App\Model\Mahasiswa::where('fakultas','FH')->get());
+        $data['warga'] = count(\App\Model\Warga::all());
+        // $data['fmipa'] = count(\App\Model\Warga::where('fakultas','FMIPA')->get());
+        // $data['ft'] = count(\App\Model\Warga::where('fakultas','FT')->get());
+        // $data['fbs'] = count(\App\Model\Warga::where('fakultas','FBS')->get());
+        // $data['fik'] = count(\App\Model\Warga::where('fakultas','FIK')->get());
+        // $data['fe'] = count(\App\Model\Warga::where('fakultas','FE')->get());
+        // $data['fis'] = count(\App\Model\Warga::where('fakultas','FIS')->get());
+        // $data['fip'] = count(\App\Model\Warga::where('fakultas','FIP')->get());
+        // $data['fh'] = count(\App\Model\Warga::where('fakultas','FH')->get());
         return view('admin.dashboard',$data);
     });
-    Route::get('/amahasiswa', function () {
+    Route::get('/awarga', function () {
         return view('admin.mahasiswa.index');
     });
     Route::get('/asetting', function () {
@@ -66,11 +66,11 @@ Route::group(['as' =>'admin.','middleware'=> 'auth'],function(){
 
     Route::group(['prefix' => 'admin'], function(){
         Route::group(["as" => "mahasiswa.", "prefix" => "mahasiswa"], function () {
-            Route::get('/', 'mahasiswaController@index')->name('index');
-            Route::get('/data', 'mahasiswaController@data')->name('data');
-            Route::post('/add', 'mahasiswaController@store')->name('add');
-            Route::post('/edit', 'mahasiswaController@edit')->name('edit');
-            Route::post('/delete', 'mahasiswaController@delete')->name('delete');
+            Route::get('/', 'wargaController@index')->name('index');
+            Route::get('/data', 'wargaController@data')->name('data');
+            Route::post('/add', 'wargaController@store')->name('add');
+            Route::post('/edit', 'wargaController@edit')->name('edit');
+            Route::post('/delete', 'wargaController@delete')->name('delete');
         });
         Route::group(["as" => "topsis.", "prefix" => "topsis"], function () {
             Route::get('/linguistik', 'analisaTopsis@linguistik')->name('linguistik');
