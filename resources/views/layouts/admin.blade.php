@@ -38,7 +38,7 @@
                         <!--</a>-->
                         <!-- Image Logo -->
                         <a href="/" class="logo">
-                            <h3 style="padding-top: 15px;">Simapres</h3>
+                            <h3 style="padding-top: 15px;">GARUDA DEVELOPMENT</h3>
                         </a>
 
                     </div>
@@ -130,7 +130,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        2019 © DigiFlash -digiflash.web.id
+                        2020 © Garudev - garudev.com
                     </div>
                 </div>
             </div>

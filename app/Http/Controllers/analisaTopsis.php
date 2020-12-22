@@ -137,7 +137,7 @@ class analisaTopsis extends Controller
             }elseif ($key->tanggungan == 3) {
                 # code...
                 $key->l_tanggungan = 4;
-            }elseif ($key->tanggungan >= 4) {
+            }elseif ($key->tanggungan > 3) {
                 # code...
                 $key->l_tanggungan = 5;
             }
@@ -253,7 +253,7 @@ class analisaTopsis extends Controller
             $key->a_pendapatan = pow(($key->v_pendapatan - $solusi_ideal['c4']['positif']),2);
             $key->a_status_tinggal = pow(($key->v_status_tinggal - $solusi_ideal['c5']['positif']),2);
             $key->a_tanggungan = pow(($key->v_tanggungan - $solusi_ideal['c6']['positif']),2);
-            $key->a_total = sqrt($key->a_usia+$key->a_status_pernikahan+$key->a_pekerjaan+$key->a_pendapatan+$key->a_status_tinggal+$key->a_pendapatan);
+            $key->a_total = sqrt($key->a_usia+$key->a_status_pernikahan+$key->a_pekerjaan+$key->a_pendapatan+$key->a_status_tinggal+$key->a_tanggungan);
         }
         return $warga;
     }
@@ -268,9 +268,9 @@ class analisaTopsis extends Controller
             $key->b_status_pernikahan = pow(($key->v_status_pernikahan - $solusi_ideal['c2']['negatif']),2);
             $key->b_pekerjaan = pow(($key->v_pekerjaan - $solusi_ideal['c3']['negatif']),2);
             $key->b_pendapatan = pow(($key->v_pendapatan - $solusi_ideal['c4']['negatif']),2);
-            $key->b_indeks_sks = pow(($key->v_indeks_sks - $solusi_ideal['c5']['negatif']),2);
+            $key->b_status_tinggal = pow(($key->v_status_tinggal - $solusi_ideal['c5']['negatif']),2);
             $key->b_tanggungan = pow(($key->v_tanggungan - $solusi_ideal['c6']['negatif']),2);
-            $key->b_total = sqrt($key->b_usia+$key->b_status_pernikahan+$key->b_pekerjaan+$key->b_pendapatan+$key->b_indeks_sks+$key->b_tanggungan);
+            $key->b_total = sqrt($key->b_usia+$key->b_status_pernikahan+$key->b_pekerjaan+$key->b_pendapatan+$key->b_status_tinggal+$key->b_tanggungan);
         }
         return $warga;
     }

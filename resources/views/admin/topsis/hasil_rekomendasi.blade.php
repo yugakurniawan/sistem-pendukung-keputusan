@@ -51,12 +51,12 @@
                     columns:[
                         {data:'id', name: 'id',orderable:false,visible:false},
                         {data:'nama', name: 'nama',orderable:false},
-                        {data:'usia',name:'usia'},
-                        {data:'status_pernikahan',name:'status_pernikahan'},
-                        {data:'pekerjaan',name:'pekerjaan'},
-                        {data:'pendapatan',name:'pendapatan'},
-                        {data:'status_tinggal',name:'status_tinggal'},                        
-                        {data:'tanggungan',name:'tanggungan'},
+                        {data:'usia',name:'usia',orderable:false},
+                        {data:'status_pernikahan',name:'status_pernikahan',orderable:false},
+                        {data:'pekerjaan',name:'pekerjaan',orderable:false},
+                        {data:'pendapatan',name:'pendapatan',orderable:false},
+                        {data:'status_tinggal',name:'status_tinggal',orderable:false},                        
+                        {data:'tanggungan',name:'tanggungan',orderable:false},
                         {data:'nilai_preferensi',name:'nilai_preferensi'}                        
                     ]
                 });

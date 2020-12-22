@@ -49,13 +49,6 @@
                     ajax: '{!! route('admin.topsis.jarak_solusi_positif') !!}',
                     order:[0,'desc'],
                     columns:[
-                        // {data:'id', name: 'id'},
-                        // {data:'nama', name: 'nama'},
-                        // {data:'a_prestasi',name:'a_prestasi'},
-                        // {data:'a_karya_ilmiah',name:'a_karya_ilmiah'},
-                        // {data:'a_bahasa_asing',name:'a_bahasa_asing'},
-                        // {data:'a_ipk',name:'a_ipk'},
-                        // {data:'a_indeks_sks',name:'a_indeks_sks'},
                         {data:'id', name: 'id'},
                         {data:'nama', name: 'nama'},
                         {data:'a_usia',name:'a_usia'},

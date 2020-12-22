@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('title')
-    Mahasiswa | SIMAPRES
+    SISTEM PENDUKUNG KEPUTUSAN BPNT | GARUDEV
 @endsection
 @section('content')
 <br>

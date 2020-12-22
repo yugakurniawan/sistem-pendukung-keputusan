@@ -58,12 +58,6 @@
                         {data:'a_status_tinggal',name:'a_status_tinggal'}                        
                         {data:'a_tanggungan',name:'a_tanggungan'}
                         {data:'nilai_preferensi',name:'nilai_preferensi'}     
-                        // {data:'a_prestasi',name:'a_prestasi'},
-                        // {data:'a_karya_ilmiah',name:'a_karya_ilmiah'},
-                        // {data:'a_bahasa_asing',name:'a_bahasa_asing'},
-                        // {data:'a_ipk',name:'a_ipk'},
-                        // {data:'a_indeks_sks',name:'a_indeks_sks'},
-                        // {data:'nilai_preferensi',name:'nilai_preferensi'}                        
                     ]
                 });
             } );

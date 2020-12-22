@@ -67,10 +67,10 @@
                         {data:'nama', name: 'nama'},
                         {data:'l_usia',name :'l_usia'},
                         {data:'l_status_pernikahan',name:'l_status_pernikahan'},
-                        {data:'l_pekerjaan',name:'pekerjaan'},
+                        {data:'l_pekerjaan',name:'l_pekerjaan'},
                         {data:'l_pendapatan',name:'l_pendapatan'},
                         {data:'l_status_tinggal',name:'l_status_tinggal'},
-                        {data:'l_tanggungan',name:'tanggungan'}
+                        {data:'l_tanggungan',name:'l_tanggungan'}
                     ]
                 });
             } );

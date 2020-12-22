@@ -13,9 +13,7 @@ class wargaSeed extends Seeder
     protected $status_pernikahan = array('Menikah','Belum Menikah','Cerai Hidup','Cerai Mati');
     protected $pekerjaan = array('PNS','TNI','POLRI','Wirausaha', 'Karyawan', 'Petani', 'Nelayan', 'Pengangguran');
     protected $status_tinggal = array('Rumah Permanen','Kontrakan','Rumah Semi Permanen','Rumah Kayu', 'Rumah Gubuk');
-    // public function randomFloat($min = 0, $max = 1) {
-    //     return $min + mt_rand() / mt_getrandmax() * ($max - $min);
-    // }
+    
      public function run()
     {
         //

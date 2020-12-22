@@ -21,7 +21,7 @@ Route::get('/tes2',function(){
 Route::group(['as' =>'admin.','middleware'=> 'auth'],function(){
     Route::get('/', function () {
         $data['warga'] = count(\App\Model\Warga::all());
-        // $data['fmipa'] = count(\App\Model\Warga::where('fakultas','FMIPA')->get());
+        $data['TNI'] = count(\App\Model\Warga::where('pekerjaan','TNI')->get());
         // $data['ft'] = count(\App\Model\Warga::where('fakultas','FT')->get());
         // $data['fbs'] = count(\App\Model\Warga::where('fakultas','FBS')->get());
         // $data['fik'] = count(\App\Model\Warga::where('fakultas','FIK')->get());

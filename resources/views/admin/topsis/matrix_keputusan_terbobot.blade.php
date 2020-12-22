@@ -48,15 +48,6 @@
                     ajax: '{!! route('admin.topsis.matrix_keputusan_terbobot') !!}',
                     order:[0,'desc'],
                     columns:[
-                        // {data:'id', name: 'id'},
-                        // {data:'nim',name :'nim'},
-                        // {data:'nama', name: 'nama'},
-                        // {data:'fakultas',name:'fakultas'},
-                        // {data:'v_prestasi',name:'v_prestasi'},
-                        // {data:'v_karya_ilmiah',name:'v_karya_ilmiah'},
-                        // {data:'v_bahasa_asing',name:'v_bahasa_asing'},
-                        // {data:'v_ipk',name:'v_ipk'},
-                        // {data:'v_indeks_sks',name:'v_indeks_sks'}
                         {data:'id', name: 'id'},
                         {data:'nama', name: 'nama'},
                         {data:'v_usia',name :'v_usia'},
